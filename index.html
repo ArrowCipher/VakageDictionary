@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Word Repository</title>
+    <style> body { font-family: 'Cinzel Decorative', cursive; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center;  background-image: url('https://img.freepik.com/free-vector/white-color-background-gradient-abstract-modern_343694-2130.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712534400&semt=ais');
+  background-repeat: no-repeat; background-size: cover; background-attachment: fixed;
+  background-size: 100% 100%; background-position: center; } h1 { margin-top: 50px; font-size: 3rem;  } #search-box { padding: 10px; font-size: 1.5rem; width: 50%; margin-top: 20px; border: 2px solid #007bff; border-radius: 5px; outline: none; } #search-button { padding: 10px 20px; font-size: 1.5rem; margin-left: 10px; cursor: pointer; background-color: #007bff; color: #fff; border: none; border-radius: 5px; transition: background-color 0.3s; } #search-button:hover { background-color: #0056b3; } #results { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 50px; } .word-card { margin: 20px; padding: 20px; border: 1px solid #ccc; width: 30%; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 5px; transition: transform 0.3s; } .word-card:hover { transform: translateY(-5px); } .word-card h2 { font-size: 1.5rem; margin-bottom: 10px; color: #333; } .word-card p { font-size: 1.2rem; color: #666; } @media (max-width: 768px) { .word-card { width: 45%; } } @media (max-width: 500px) { .word-card { width: 100%; } }
+  main {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Grid layout for definition and additional info */
+  grid-gap: 20px;
+}
+
+.definition {
+  background-color: #f5f5f5; /* Light gray background for definitions */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.definition h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+  font-weight: bold; /* Bold definition title */
+  color: #333;
+}
+
+.definition p {
+  margin-bottom: 10px; /* Add some space between paragraphs */
+  line-height: 1.5; 
+}</style>
+
+<body>
+    <h1>Vakage Dictionary</h1>
+    <input type="text" id="search-box" placeholder="Enter a word...">
+    <button id="search-button">Search</button>
+
+    <button id="scroll-down-button" class="scroll-down-button">
+      <header id="header">
+        <div class="logo-container">
+          <img src="logo.png" alt="Logo" class="logo" height="45px" width="45px">
+        </div>
+
+      </header>
+      </span>
+    </button>
+    <style>
+      .scroll-down-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+      }
+      
+      .scroll-down-button:hover {
+        background-color: #0056b3;
+      }
+      
+      .scroll-down-button-text {
+        display: none;
+      }
+      
+      .scroll-down-button-icon {
+        font-size: 1.5rem;
+      }
+      
+      @media (max-width: 768px) {
+        .scroll-down-button {
+          bottom: 10px;
+          right: 10px;
+          width: 50px;
+          height: 50px;
+        }
+      
+        .scroll-down-button-text {
+          display: block;
+          font-size: 0.8rem;
+          margin-right: 5px;
+        }
+      
+        .scroll-down-button-icon {
+          font-size: 1.2rem;
+        }
+      }
+      
+    </style>
+    <script>
+      const scrollDownButton = document.getElementById('scroll-down-button');
+
+scrollDownButton.addEventListener('click', () => {
+  const targetElement = document.querySelector('#results');
+  const targetPosition = targetElement.offsetTop;
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: 'smooth'
+  });
+});
+
+    </script>
+ 
+    <div id="results"></div>
+    <div class="container">
+      <br><br><br><br><br>
+      <h1>Word of the Day</h1>
+      <p id="word"></p>
+      <style>
+        .container {
+          max-width: 100%;
+          margin: 50px auto;
+          padding: 20px;
+
+          box-shadow: 0 2px 4px rgba(1, 0, 1, 0.1);
+      }
+      </style>
+      <script>
+        const words = ['Perplexity', 'Enigma', 'Curiosity', 'Epiphany', 'Euphoria', 'Resilience', 'Serendipity', 'Empathy', 'Zeal', 'Tranquility']; // Add more words as needed
+
+const date = new Date();
+const day = date.getDate();
+const wordIndex = day % words.length;
+const wordElement = document.getElementById('word');
+wordElement.textContent = words[wordIndex];
+      </script>
+  
+  
+
+    <main>
+    <div class="definition">
+      <h2>Hello</h2>
+      <p class="definition-text">An informal of greetings.</p>
+    </div>
+<div class="definition"> <h2>Melancholy</h2> <p class="definition-text">A feeling of pensive sadness, typically with no obvious cause.</p> </div> <div class="definition"> <h2>Nostalgia</h2> <p class="definition-text">A sentimental longing or wistful affection for the past, typically for a period or place with happy personal associations.</p> </div> <div class="definition"> <h2>Synergy</h2> <p class="definition-text">The interaction or cooperation of two or more organizations, substances, or other agents to produce a combined effect greater than the sum of their separate effects.</p> </div> <div class="definition"> <h2>Motivation</h2> <p class="definition-text">The reason or reasons one has for acting or behaving in a particular way.</p> </div> <div class="definition"> <h2>Innovation</h2> <p class="definition-text">The process of translating an idea or invention into a good or service that creates value or for which customers will pay.</p> </div> <div class="definition"> <h2>Diversity</h2> <p class="definition-text">The state of being diverse; variety.</p> </div> <div class="definition"> <h2>Sustainability</h2> <p class="definition-text">The ability to maintain or support an activity or process over time.</p> </div> <div class="definition"> <h2>Creativity</h2> <p class="definition-text">The use of imagination or original ideas to create something; inventiveness.</p> </div> <div class="definition"> <h2>Harmony</h2> <p class="definition-text">The peaceful and pleasant coexistence of people or things.</p> </div> <div class="definition"> <h2>Balance</h2> <p class="definition-text">A state of equilibrium or equal distribution of weight.</p> </div> <div class="definition"> <h2>Flexibility</h2> <p class="definition-text">The quality of bending easily without breaking.</p> </div> <div class="definition"> <h2>Mindfulness</h2> <p class="definition-text">The quality or state of being conscious or aware of something.</p> </div> <div class="definition"> <h2>Gratitude</h2> <p class="definition-text">The quality of being thankful; readiness to show appreciation for and to return kindness.</p> </div> <div class="definition"> <h2>Honesty</h2> <p class="definition-text">The quality of being honest and truthful.</p> </div> <div class="definition"> <h2>Courage</h2> <p class="definition-text">The ability to do something that frightens one.</p> </div> <div class="definition"> <h2>Compassion</h2> <p class="definition-text">A feeling of deep sympathy and sorrow for another who is stricken by misfortune, accompanied by a strong desire to alleviate the suffering.</p> </div> <div class="definition"> <h2>Hope</h2> <p class="definition-text">A feeling of expectation and desire for a certain thing to happen.</p> </div> <div class="definition"> <h2>Faith</h2> <p class="definition-text">Complete trust or confidence in someone or something.</p> </div> <div class="definition"> <h2>Love</h2> <p class="definition-text">A strong feeling of affection and fondness for someone or something.</p> </div> <div class="definition"> <h2>Joy</h2> <p class="definition-text">A feeling of great pleasure and happiness.</p> </div> <div class="definition"> <h2>Peace</h2> <p class="definition-text">Freedom from disturbance; tranquility.</p> </div> <div class="definition"> <h2>Kindness</h2> <p class="definition-text">The quality of being friendly, generous, and considerate.</p> </div> <div class="definition"> <h2>Patience</h2> <p class="definition-text">The capacity to accept or tolerate delay, trouble, or suffering without getting angry or upset.</p> </div> <div class="definition"> <h2>Humility</h2> <p class="definition-text">The quality of having a modest or low estimate of one's importance.</p> </div> <div class="definition"> <h2>Gentleness</h2> <p class="definition-text">The quality of being kind, tender, and mild in disposition or behavior.</p> </div> <div class="definition"> <h2>Self-control</h2> <p class="definition-text">The ability to control one's feelings and overt behavior, especially in difficult situations.</p> </div> <div class="definition"> <h2>Integrity</h2> <p class="definition-text">The quality of being honest and having strong moral principles.</p> </div> <div class="definition"> <h2>Perseverance</h2> <p class="definition-text">The quality of continuing to try to achieve a particular aim despite difficulties.</p> </div> <div class="definition"> <h2>Reliability</h2> <p class="definition-text">The quality of being trustworthy or of performing consistently well.</p> </div> <div class="definition"> <h2>Loyalty</h2> <p class="definition-text">The quality of being loyal to someone or something.</p> </div> <div class="definition"> <h2>Responsibility</h2> <p class="definition-text">The quality of being responsible, trustworthy, or dependable.</p> </div> <div class="definition"> <h2>Courtesy</h2> <p class="definition-text">Polite behavior and language.</p> </div> <div class="definition"> <h2>Respect</h2> <p class="definition-text">A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements.</p> </div> <div class="definition"> <h2>Honor</h2> <p class="definition-text">High respect; great esteem.</p> </div> <div class="definition"> <h2>Dignity</h2> <p class="definition-text">The quality of being worthy of honor or respect.</p> </div> <div class="definition"> <h2>Discipline</h2> <p class="definition-text">The practice of training people to obey rules or a code of behavior, using punishment to correct disobedience.</p> </div> <div class="definition"> <h2>Determination</h2> <p class="definition-text">The quality of being determined; firmness of purpose.</p> </div> <div class="definition"> <h2>Encouragement</h2> <p class="definition-text">The action of giving someone support, confidence, or hope.</p> </div> <div class="definition"> <h2>Enthusiasm</h2> <p class="definition-text">Intense and eager enjoyment, interest, or approval.</p> </div> <div class="definition"> <h2>Excitement</h2> <p class="definition-text">A feeling of great enthusiasm and eagerness.</p> </div> <div class="definition"> <h2>Generosity</h2> <p class="definition-text">The quality of being kind and generous.</p> </div> <div class="definition"> <h2>Gratitude</h2> <p class="definition-text">The quality of being thankful; readiness to show appreciation for and to return kindness.</p> </div> <div class="definition"> <h2>Happiness</h2> <p class="definition-text">The quality or state of being happy.</p> </div> <div class="definition"> <h2>Hopefulness</h2> <p class="definition-text">The feeling or belief that something good will happen.</p> </div> <div class="definition"> <h2>Humor</h2> <p class="definition-text">The quality of being amusing or comic, especially as expressed in literature or speech.</p> </div> <div class="definition"> <h2>Imagination</h2> <p class="definition-text">The faculty or action of forming new ideas, or images or concepts of external objects not present to the senses.</p> </div> <div class="definition"> <h2>Kindness</h2> <p class="definition-text">The quality of being friendly, generous, and considerate.</p> </div> <div class="definition"> <h2>Love</h2> <p class="definition-text">A strong feeling of affection and fondness for someone or something.</p> </div> <div class="definition"> <h2>Optimism</h2> <p class="definition-text">Hopefulness and confidence about the future or the success of something.</p> </div> <div class="definition"> <h2>Passion</h2> <p class="definition-text">A strong and barely controllable emotion.</p> </div> <div class="definition"> <h2>Patience</h2> <p class="definition-text">The capacity to accept or tolerate delay, trouble, or suffering without getting angry or upset.</p> </div> <div class="definition"> <h2>Pride</h2> <p class="definition-text">A feeling or deep pleasure or satisfaction derived from one's own achievements, the achievements of those with whom one is closely associated, or from qualities or possessions that are widely admired.</p> </div> <div class="definition"> <h2>Realism</h2> <p class="definition-text">The quality or fact of representing a person, thing, or situation accurately or in a way that is true to life.</p> </div> <div class="definition"> <h2>Reliability</h2> <p class="definition-text">The quality of being trustworthy or of performing consistently well.</p> </div> <div class="definition"> <h2>Sensitivity</h2> <p class="definition-text">The quality of being able to appreciate and respond to complex emotional or social situations; the ability to express emotions or feel compassion for others.</p> </div> <div class="definition"> <h2>Serenity</h2> <p class="definition-text">The state of being calm, peaceful, and untroubled.</p> </div> <div class="definition"> <h2>Sincerity</h2> <p class="definition-text">The quality of being free from deceit, hypocrisy, or insincerity.</p> </div> <div class="definition"> <h2>Thoughtfulness</h2> <p class="definition-text">The quality of being considerate and attentive to the needs and feelings of others.</p> </div> <div class="definition"> <h2>Trust</h2> <p class="definition-text">Firm belief in the reliability, truth, ability, or strength of someone or something.</p> </div> <div class="definition"> <h2>Understanding</h2> <p class="definition-text">The ability to understand someone's feelings or problems.</p> </div> <div class="definition"> <h2>Wisdom</h2> <p class="definition-text">The quality of having experience, knowledge, and good judgment; the quality of being wise.</p> </div> <div class="definition"> <h2>Zeal</h2> <p class="definition-text">Great energy or enthusiasm in pursuit of a cause or an objective.</p> </div>
+    </main>
+    <script>
+        const searchButton = document.getElementById('search-button');
+        const searchBox = document.getElementById('search-box');
+        const results = document.getElementById('results');
+
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchBox.value.trim();
+            if (searchTerm) {
+                fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.title) {
+                            results.innerHTML = `<p style="font-size: 1.5rem; margin-bottom: 20px;">${data.title}</p>`;
+                        } else {
+                            let definitions = '';
+                            data.forEach(entry => {
+                                definitions += `<div class="word-card">`;
+                                definitions += `<h2>${entry.word}</h2>`;
+                                definitions += `<p>${entry.phonetics[0].text}</p>`;
+                                definitions += `<p>${entry.meanings[0].definitions[0].definition}</p>`;
+                                definitions += '</div>';
+                            });
+                            results.innerHTML = definitions;
+                        }
+                    })
+                    .catch(error => {
+                        results.innerHTML = `<p style="font-size: 1.5rem; margin-bottom: 20px;">An error occurred: ${error.message}</p>`;
+                    });
+            }
+        });
+    </script>
+</body>
+</html>
